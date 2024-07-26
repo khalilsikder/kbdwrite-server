@@ -5,7 +5,7 @@ import slugify from "slugify";
 import { format } from "path";
 
 const productSchema = new Schema<TProduct, TProductModel, TProductMethods>({
-  title: {
+  name: {
     type: String,
     required: [true, "Title is required"],
   },
@@ -40,7 +40,7 @@ const productSchema = new Schema<TProduct, TProductModel, TProductMethods>({
 
 productSchema.method("createSlug", function createSlug(payload: TProduct) {
   //creating slug
-  const slug = slugify(`${payload.title}`, {
+  const slug = slugify(`${payload.name}`, {
     lower: true,
   });
 

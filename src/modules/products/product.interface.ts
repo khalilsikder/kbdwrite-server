@@ -2,7 +2,7 @@ import { Model } from "mongoose";
 
 export type TProduct = {
     releaseDate(releaseDate: any, arg1: string): unknown;
-    title:string;
+    name:string;
     brand:string;
     availableQuantity:number;
     description:string;
