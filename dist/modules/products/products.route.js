@@ -10,4 +10,5 @@ const router = express_1.default.Router();
 router.post('/', product_controller_1.productControllers.createProduct);
 router.get('/:slug', product_controller_1.productControllers.getProductBySlug);
 router.get('/', product_controller_1.productControllers.getAllProducts);
+// router.post('/checkout',paymentController)
 exports.productRoutes = router;

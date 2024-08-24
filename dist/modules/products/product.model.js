@@ -1,9 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 const mongoose_1 = require("mongoose");
+const slugify_1 = __importDefault(require("slugify"));
 const productSchema = new mongoose_1.Schema({
-    title: {
+    name: {
         type: String,
         required: [true, "Title is required"],
     },
@@ -34,5 +38,12 @@ const productSchema = new mongoose_1.Schema({
     slug: {
         type: String,
     },
+});
+productSchema.method("createSlug", function createSlug(payload) {
+    //creating slug
+    const slug = (0, slugify_1.default)(`${payload.name}`, {
+        lower: true,
+    });
+    return slug;
 });
 exports.Product = (0, mongoose_1.model)("Product", productSchema);
